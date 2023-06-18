@@ -1,0 +1,305 @@
+/* Configurations */
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+	font-size: 16px;
+}
+
+:root {
+	--text: "Roboto", helvetica, sans-serif;
+	--primaryColor: #ffffff;
+	--shadowColor: #ffffff;
+	--hoverColor: #ffffff;
+}
+
+/* Header */
+
+header {
+	box-shadow: 5px 5px 5px 5px var(--shadowColor);
+	height: 130px;
+	position: relative;
+	margin-bottom: 50px;
+}
+
+header > #title {
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	height: 60px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+header > #configuration {
+	height: 50px;
+	position: absolute;
+	left: 80px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+/* Main */
+
+main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+/* Clock */
+
+main > #clock {
+	box-shadow: 5px 5px 5px 5px var(--shadowColor);
+	height: 300px;
+	width: 400px;
+	margin-bottom: 50px;
+}
+
+#clock > #content {
+	margin-top: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+/* Clock > Icons */
+
+#content > #icons {
+	width: 100%;
+	display: flex;
+	margin: 10px 0px 0px 0px;
+	justify-content: space-around;
+}
+
+#icons > #sound {
+	position: relative;
+	right: 50px;
+	height: 40px;
+	transition: all 0.1s;
+}
+
+#icons > #sound:hover {
+	cursor: pointer;
+}
+
+#icons > #config {
+	position: relative;
+	left: 50px;
+	height: 35px;
+}
+
+#icons > #config:hover {
+	cursor: pointer;
+}
+
+/* Clock */
+
+#content > #pomodoro {
+	color: white;
+	font: 600 1.5em var(--text);
+	margin-bottom: 20px;
+}
+
+#pomodoro > strong {
+	color: var(--primaryColor);
+}
+
+#content > #timer {
+	color: white;
+	font: bold 5em var(--text);
+	margin-bottom: 20px;
+}
+
+#content > #state {
+	color: var(--primaryColor);
+	font: 600 1.5em var(--text);
+}
+
+/* Buttons */
+
+#buttons {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+
+#button {
+	border: none;
+	height: 55px;
+	width: 200px;
+	background-color: var(--primaryColor);
+	color: white;
+	font: 600 1em var(--text);
+	box-shadow: 3px 3px 5px 3px var(--shadowColor);
+	margin-right: 50px;
+	transition: background-color 0.2s;
+}
+
+#button:hover {
+	cursor: pointer;
+	background-color: var(--hoverColor);
+}
+
+#button:active {
+	box-shadow: 0px 0px 0px 0px var(--shadowColor);
+	position: relative;
+	top: 3px;
+}
+
+#button > img {
+	position: relative;
+	right: 8px;
+}
+
+#buttonText {
+	position: relative;
+	bottom: 4px;
+}
+
+#restart {
+	border: none;
+	height: 55px;
+	width: 200px;
+	background-color: var(--primaryColor);
+	color: white;
+	font: 600 1em var(--text);
+	box-shadow: 3px 3px 5px 3px var(--shadowColor);
+	margin-left: 50px;
+	transition: background-color 0.2s;
+}
+
+#restart:hover {
+	cursor: pointer;
+	background-color: var(--hoverColor);
+}
+
+#restart:active {
+	box-shadow: 0px 0px 0px 0px var(--shadowColor);
+	position: relative;
+	top: 3px;
+}
+
+#restart > img {
+	position: relative;
+	right: 8px;
+}
+
+#restartText {
+	position: relative;
+	bottom: 4px;
+}
+
+/* Audio */
+
+#audio {
+	visibility: hidden;
+}
+
+/* Settings */
+
+#settings {
+	display: none;
+	flex-direction: column;
+	background-color: #dbdbdb;
+	height: 90%;
+	width: 400px;
+	position: fixed;
+	z-index: 9;
+	top: -50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 15px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 15px 5px #0000005b;
+	overflow-y: scroll;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+	transition: all 0.3s;
+	animation: showSettings 0.5s 1 forwards;
+}
+
+#settings::-webkit-scrollbar {
+	display: none;
+}
+
+@keyframes showSettings {
+	100% {
+		top: 50%;
+	}
+}
+
+#settings > img {
+	position: relative;
+	left: 5px;
+	top: 3px;
+	height: 20px;
+	width: 20px;
+}
+
+#settings > img:hover {
+	cursor: pointer;
+}
+
+#settings > h1 {
+	color: #8f8f8f;
+	font: bold 1.8em var(--text);
+	text-align: center;
+	margin-top: 5px;
+}
+
+#settings > h2 {
+	color: #8f8f8f;
+	font: normal 1.3em var(--text);
+	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.numberImputs {
+	display: flex;
+	flex-direction: column;
+}
+
+.numberImputs > label {
+	color: #8f8f8f;
+	font: normal 0.8em var(--text);
+	text-align: center;
+	margin-bottom: 8px;
+}
+
+.numberImputs > input {
+	text-align: center;
+	border-radius: 10px;
+	height: 45px;
+	width: 90px;
+	font: normal 1.2em var(--text);
+	border: none;
+	background-color: #625d5d48;
+	padding: 10px;
+}
+
+.inputs {
+	display: flex;
+	justify-content: space-around;
+}
+
+#settings > #save {
+	padding: 10px;
+	width: 130px;
+	height: 45px;
+	margin: 35px auto 15px auto;
+	color: #ffffff;
+	background-color: #625d5d48;
+	font: normal 1em var(--text);
+	border: none;
+	cursor: pointer;
+}

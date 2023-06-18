@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style/style.css" />
+		<script defer src="/javascript/script.js"></script>
+		<title id="pageTitle">Simple Pomodoro</title>
+	</head>
+	<body>
+		<header id="header">
+			<img src="/imgs/titulo.png" alt="titulo" id="title" />
+		</header>
+		<main id="main">
+			<div id="clock">
+				<div id="content">
+					<div id="icons">
+						<img src="/imgs/aumentar-o-volume(1).png" alt="volume" id="sound" 0 />
+						<img src="/imgs/configuracao.png" alt="configurção" id="config" />
+					</div>
+					<h2 id="pomodoro"></h2>
+					<h1 id="timer"></h1>
+					<h2 id="state"></h2>
+				</div>
+			</div>
+			<div id="buttons">
+				<button id="button">
+					<img id="buttonImg" src="/imgs/play2.png" />
+					<span id="buttonText">Iniciar</span>
+				</button>
+				<button id="restart">
+					<img src="/imgs/reiniciar(1).png" />
+					<span id="restartText">Reiniciar</span>
+				</button>
+			</div>
+			<audio id="audio">
+				<source src="/audio/alarm1.mp3" type="audio/mp3" />
+			</audio>
+		</main>
+		<div id="settings">
+			<img src="/imgs/cancelar.png" id="closeX" />
+			<h1>Configurações</h1>
+			<h2>Tempo de Foco</h2>
+			<div class="inputs">
+				<div class="numberImputs">
+					<label for="inputFMinutes">Minutos</label>
+					<input type="number" id="inputFMinutes" min="0" max="60" />
+				</div>
+				<div class="numberImputs">
+					<label for="inputFMinutes">Segundos</label>
+					<input type="number" id="inputFSeconds" min="1" max="60" />
+				</div>
+			</div>
+			<button id="save">Salvar</button>
+		</div>
+	</body>
+</html>
