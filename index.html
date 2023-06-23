@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -45,11 +45,33 @@
 			<div class="inputs">
 				<div class="numberImputs">
 					<label for="inputFMinutes">Minutos</label>
-					<input type="number" id="inputFMinutes" min="0" max="60" />
+					<input type="number" id="inputFMinutes" min="1" max="60" />
 				</div>
 				<div class="numberImputs">
 					<label for="inputFMinutes">Segundos</label>
-					<input type="number" id="inputFSeconds" min="1" max="60" />
+					<input type="number" id="inputFSeconds" min="0" max="60" />
+				</div>
+			</div>
+			<h2>Tempo de Pausa</h2>
+			<div class="inputs">
+				<div class="numberImputs">
+					<label for="inputBMinutes">Minutos</label>
+					<input type="number" id="inputBMinutes" min="1" max="60" />
+				</div>
+				<div class="numberImputs">
+					<label for="inputBSeconds">Segundos</label>
+					<input type="number" id="inputBSeconds" min="0" max="60" />
+				</div>
+			</div>
+			<h2>Tempo de Descanso</h2>
+			<div class="inputs">
+				<div class="numberImputs">
+					<label for="inputLBMinutes">Minutos</label>
+					<input type="number" id="inputLBMinutes" min="1" max="60" />
+				</div>
+				<div class="numberImputs">
+					<label for="inputLBSeconds">Segundos</label>
+					<input type="number" id="inputLBSeconds" min="0" max="60" />
 				</div>
 			</div>
 			<button id="save">Salvar</button>

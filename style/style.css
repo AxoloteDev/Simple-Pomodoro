@@ -253,7 +253,6 @@ main > #clock {
 	color: #8f8f8f;
 	font: bold 1.8em var(--text);
 	text-align: center;
-	margin-top: 5px;
 }
 
 #settings > h2 {
@@ -290,15 +289,16 @@ main > #clock {
 .inputs {
 	display: flex;
 	justify-content: space-around;
+	margin-bottom: 10px;
 }
 
 #settings > #save {
-	padding: 10px;
+	padding: 15px;
 	width: 130px;
-	height: 45px;
+	height: 55px;
 	margin: 35px auto 15px auto;
 	color: #ffffff;
-	background-color: #625d5d48;
+	background-color: #b30101;
 	font: normal 1em var(--text);
 	border: none;
 	cursor: pointer;

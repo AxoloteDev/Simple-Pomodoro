@@ -10,6 +10,15 @@ const config = document.querySelector("#config");
 const settings = document.querySelector("#settings");
 const closeX = document.querySelector("#closeX");
 
+const inputFocosMinutes = document.querySelector("#inputFMinutes");
+const inputFocosSeconds = document.querySelector("#inputFSeconds");
+const inputBreakMinutes = document.querySelector("#inputBMinutes");
+const inputBreakSeconds = document.querySelector("#inputBSeconds");
+const inputLongBreakMinutes = document.querySelector("#inputLBMinutes");
+const inputLongBreakSeconds = document.querySelector("#inputLBSeconds");
+
+const saveButton = document.querySelector("#save");
+
 const sound = document.querySelector("#sound");
 
 const pomodoroDisplay = document.querySelector("#pomodoro");
@@ -38,16 +47,28 @@ let pomodoro = 1;
 let timer = undefined;
 
 // time of focus state
-let focusSeconds = 0;
-let focusMinutes = 15;
+
+inputFocosSeconds.value = 3;
+inputFocosMinutes.value = 0;
+
+let focusSeconds = parseInt(inputFocosSeconds.value);
+let focusMinutes = parseInt(inputFocosMinutes.value);
 
 // time of short break state
-let shortBreakSeconds = 0;
-let shortBreakMinutes = 5;
+
+inputBreakSeconds.value = 3;
+inputBreakMinutes.value = 0;
+
+let shortBreakSeconds = parseInt(inputBreakSeconds.value);
+let shortBreakMinutes = parseInt(inputBreakMinutes.value);
 
 // time of long break state
-let longBreakSeconds = 0;
-let longBreakMinutes = 30;
+
+inputLongBreakSeconds.value = 5;
+inputLongBreakMinutes.value = 0;
+
+let longBreakSeconds = parseInt(inputLongBreakSeconds.value);
+let longBreakMinutes = parseInt(inputLongBreakMinutes.value);
 
 // display pomodoro´s count on screen
 pomodoroDisplay.innerHTML = `<strong>${pomodoro}°</strong> Pomodoro`;
@@ -75,6 +96,8 @@ class Clock {
 
 		if (focusSeconds === 0 && focusMinutes === 0) {
 			state = "shortBreak";
+			shortBreakMinutes = parseInt(inputBreakMinutes.value);
+			shortBreakSeconds = parseInt(inputBreakSeconds.value);
 			focusMinutes = shortBreakMinutes;
 			focusSeconds = shortBreakSeconds;
 			changeColors();
@@ -84,8 +107,10 @@ class Clock {
 			clearInterval(timer, 1000);
 			if (pomodoro === 4) {
 				state = "longBreak";
-				longBreakMinutes = 30;
-				longBreakSeconds = 0;
+				longBreakMinutes = parseInt(inputLongBreakMinutes.value);
+				longBreakSeconds = parseInt(inputLongBreakSeconds.value);
+				focusMinutes = longBreakMinutes;
+				focusSeconds = longBreakSeconds;
 				changeColors();
 				actionText.innerHTML = "Pronto!";
 				actionImg.removeAttribute("src");
@@ -136,8 +161,10 @@ class Clock {
 
 		if (shortBreakSeconds === 0 && shortBreakMinutes === 0) {
 			state = "focus";
-			shortBreakMinutes = 15;
-			shortBreakSeconds = 0;
+			focusMinutes = parseInt(inputFocosMinutes.value);
+			focusSeconds = parseInt(inputFocosSeconds.value);
+			shortBreakMinutes = focusMinutes;
+			shortBreakSeconds = focusSeconds;
 			changeColors();
 			clock.updatePomodoro();
 			actionText.innerHTML = "Pronto!";
@@ -183,10 +210,12 @@ class Clock {
 			longBreakSeconds = 60;
 		}
 
+		longBreakSeconds--;
+
 		if (longBreakSeconds === 0 && longBreakMinutes === 0) {
-			state = "focus";
-			focusSeconds = 0;
-			focusMinutes = 15;
+			state = 'focus'
+			focusMinutes = parseInt(inputFocosMinutes.value);
+			focusSeconds = parseInt(inputFocosSeconds.value);
 			longBreakMinutes = focusMinutes;
 			longBreakSeconds = focusSeconds;
 			changeColors();
@@ -197,9 +226,6 @@ class Clock {
 			actionImg.removeAttribute("src");
 			clearInterval(timer, 1000);
 		}
-
-		// decreases a number of the variable 'focusSeconds'
-		longBreakSeconds--;
 
 		time.innerHTML = `${(longBreakMinutes < 10 ? "0" : "") + longBreakMinutes}:${
 			// (if focusSeconds is less than zero, add a zero in front of seconds. if not, do not add anything)
@@ -227,7 +253,6 @@ class Clock {
 	updatePomodoro() {
 		pomodoro++;
 		pomodoroDisplay.innerHTML = `<strong>${pomodoro}°</strong> Pomodoro`;
-		console.log(pomodoro);
 	}
 
 	// method responsible for clearing the timer value
@@ -239,8 +264,8 @@ class Clock {
 		clearInterval(timer, 1000);
 		switch (state) {
 			case "focus":
-				focusMinutes = 15;
-				focusSeconds = 0;
+				focusMinutes = parseInt(inputFocosMinutes.value);
+				focusSeconds = parseInt(inputFocosSeconds.value);
 				time.innerHTML = `${(focusMinutes < 10 ? "0" : "") + focusMinutes}:${
 					// (if focusSeconds is less than zero, add a zero in front of seconds. if not, do not add anything)
 					(focusSeconds < 10 ? "0" : "") + focusSeconds
@@ -251,8 +276,8 @@ class Clock {
 				action.classList.add("active");
 				break;
 			case "shortBreak":
-				shortBreakMinutes = 5;
-				shortBreakSeconds = 0;
+				shortBreakMinutes = parseInt(inputBreakMinutes.value);
+				shortBreakSeconds = parseInt(inputBreakSeconds.value);
 				time.innerHTML = `${
 					(shortBreakMinutes < 10 ? "0" : "") + shortBreakMinutes
 				}:${
@@ -265,8 +290,8 @@ class Clock {
 				action.classList.add("active");
 				break;
 			case "longBreak":
-				longBreakMinutes = 30;
-				longBreakSeconds = 0;
+				longBreakMinutes = parseInt(inputLongBreakMinutes.value);
+				longBreakSeconds = parseInt(inputLongBreakSeconds.value);
 				time.innerHTML = `${
 					(longBreakMinutes < 10 ? "0" : "") + longBreakMinutes
 				}:${
@@ -307,10 +332,18 @@ class Clock {
 		actionImg.setAttribute("src", "/imgs/play2.png");
 		action.classList.add("active");
 	}
+
+	save() {
+		inputFocosMinutes.value;
+		inputFocosSeconds.value;
+		clock.reStart();
+		clock.closeConfig();
+	}
 }
 
 // const to access the Clock class
 const clock = new Clock();
+
 // add class "active" to action button
 action.classList.add("active");
 
@@ -321,7 +354,7 @@ action.addEventListener("click", isPause);
 function isPause() {
 	// if action has the class 'active'
 	if (action.classList.contains("active")) {
-		// call the iniciateFocus method
+		// call the iniciate state method
 		switch (state) {
 			case "focus":
 				clock.iniciateFocus();
@@ -333,7 +366,7 @@ function isPause() {
 				clock.iniciateLongBreak();
 				break;
 		}
-		// if not
+		// else not
 	} else {
 		// action changes the html to "Iniciar"
 		actionText.innerHTML = "Iniciar";
@@ -360,9 +393,18 @@ function isSounding() {
 	}
 }
 
+// function that play the audio
+function playAudio() {
+	if (sound.classList.contains("sounding")) {
+		audio.play();
+	}
+}
+
 config.addEventListener("click", clock.openConfig);
 
 closeX.addEventListener("click", clock.closeConfig);
+
+saveButton.addEventListener("click", clock.save);
 
 // Change all color
 function changeColors() {
@@ -384,9 +426,13 @@ function changeColors() {
 			document.documentElement.style.setProperty("--hoverColor", "#771414cd");
 
 			// by default display focus time on screen (if focusMinutes is less than zero, add a zero in front of minutes. if not, do not add anything)
-			time.innerHTML = `${(focusMinutes < 10 ? "0" : "") + focusMinutes}:${
+			time.innerHTML = `${
+				(parseInt(inputFocosMinutes.value) < 10 ? "0" : "") +
+				parseInt(inputFocosMinutes.value)
+			}:${
 				// (if focusSeconds is less than zero, add a zero in front of seconds. if not, do not add anything)
-				(focusSeconds < 10 ? "0" : "") + focusSeconds
+				(parseInt(inputFocosSeconds.value) < 10 ? "0" : "") +
+				parseInt(inputFocosSeconds.value)
 			}`;
 
 			displayState.innerHTML = "Foco";
@@ -432,15 +478,8 @@ function changeColors() {
 
 			break;
 		default:
-			console.log(`O state atual é ${state}`);
+			console.log(`Ocorreu um Erro no estado atual. state igual a ${state}`);
 			break;
-	}
-}
-
-// function that play the audio
-function playAudio() {
-	if (sound.classList.contains("sounding")) {
-		audio.play();
 	}
 }
 
