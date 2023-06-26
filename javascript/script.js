@@ -4,6 +4,8 @@ const body = document.querySelector("body");
 const header = document.querySelector("#header");
 const main = document.querySelector("#main");
 
+const icon = document.querySelector("#pageIcon");
+
 const title = document.querySelector("#title");
 
 const config = document.querySelector("#config");
@@ -16,6 +18,31 @@ const inputBreakMinutes = document.querySelector("#inputBMinutes");
 const inputBreakSeconds = document.querySelector("#inputBSeconds");
 const inputLongBreakMinutes = document.querySelector("#inputLBMinutes");
 const inputLongBreakSeconds = document.querySelector("#inputLBSeconds");
+
+const inputPomodoro = document.querySelector("#pomodoroValue");
+
+const notificationInput = document.querySelector("#notificationInput");
+
+const focusColor1 = document.querySelector("#fcolor1");
+const focusColor2 = document.querySelector("#fcolor2");
+const focusColor3 = document.querySelector("#fcolor3");
+const focusColor4 = document.querySelector("#fcolor4");
+const focusColor5 = document.querySelector("#fcolor5");
+const focusColor6 = document.querySelector("#fcolor6");
+
+const shortBreakColor1 = document.querySelector("#sbcolor1");
+const shortBreakColor2 = document.querySelector("#sbcolor2");
+const shortBreakColor3 = document.querySelector("#sbcolor3");
+const shortBreakColor4 = document.querySelector("#sbcolor4");
+const shortBreakColor5 = document.querySelector("#sbcolor5");
+const shortBreakColor6 = document.querySelector("#sbcolor6");
+
+const longBreakColor1 = document.querySelector("#lbcolor1");
+const longBreakColor2 = document.querySelector("#lbcolor2");
+const longBreakColor3 = document.querySelector("#lbcolor3");
+const longBreakColor4 = document.querySelector("#lbcolor4");
+const longBreakColor5 = document.querySelector("#lbcolor5");
+const longBreakColor6 = document.querySelector("#lbcolor6");
 
 const saveButton = document.querySelector("#save");
 
@@ -41,34 +68,43 @@ const pageTitle = document.querySelector("#pageTitle");
 let state = "focus";
 
 // pomodoro count
+let pomodoroCount = parseInt((inputPomodoro.value = 4));
 let pomodoro = 1;
 
 // Variable that controls the pomodoro timer
 let timer = undefined;
 
 // time of focus state
-
-inputFocosSeconds.value = 3;
-inputFocosMinutes.value = 0;
+inputFocosSeconds.value = 0; // 0
+inputFocosMinutes.value = 25; // 25
 
 let focusSeconds = parseInt(inputFocosSeconds.value);
 let focusMinutes = parseInt(inputFocosMinutes.value);
 
 // time of short break state
-
-inputBreakSeconds.value = 3;
-inputBreakMinutes.value = 0;
+inputBreakSeconds.value = 0; // 0
+inputBreakMinutes.value = 5; // 5
 
 let shortBreakSeconds = parseInt(inputBreakSeconds.value);
 let shortBreakMinutes = parseInt(inputBreakMinutes.value);
 
 // time of long break state
-
-inputLongBreakSeconds.value = 5;
-inputLongBreakMinutes.value = 0;
+inputLongBreakSeconds.value = 0; // 0
+inputLongBreakMinutes.value = 15; // 15
 
 let longBreakSeconds = parseInt(inputLongBreakSeconds.value);
 let longBreakMinutes = parseInt(inputLongBreakMinutes.value);
+
+// state of enable or disable the notification
+let notificationState = false;
+
+// default color of each state
+
+let focusBackground = "red";
+
+let shortBreakBackground = "green";
+
+let longBreakBackground = "darkblue";
 
 // display pomodoro´s count on screen
 pomodoroDisplay.innerHTML = `<strong>${pomodoro}°</strong> Pomodoro`;
@@ -104,14 +140,14 @@ class Clock {
 			actionText.innerHTML = "Pronto!";
 			actionText.style.bottom = "0px";
 			actionImg.removeAttribute("src");
+			clock.showNotification();
 			clearInterval(timer, 1000);
-			if (pomodoro === 4) {
+			if (pomodoro === pomodoroCount) {
 				state = "longBreak";
 				longBreakMinutes = parseInt(inputLongBreakMinutes.value);
 				longBreakSeconds = parseInt(inputLongBreakSeconds.value);
 				focusMinutes = longBreakMinutes;
 				focusSeconds = longBreakSeconds;
-				changeColors();
 				actionText.innerHTML = "Pronto!";
 				actionImg.removeAttribute("src");
 				actionText.style.bottom = "0px";
@@ -165,11 +201,13 @@ class Clock {
 			focusSeconds = parseInt(inputFocosSeconds.value);
 			shortBreakMinutes = focusMinutes;
 			shortBreakSeconds = focusSeconds;
+			icon.setAttribute("href", "/favicon/despertador.ico");
 			changeColors();
 			clock.updatePomodoro();
 			actionText.innerHTML = "Pronto!";
 			actionImg.removeAttribute("src");
 			actionText.style.bottom = "0px";
+			clock.showNotification();
 			clearInterval(timer, 1000);
 		}
 
@@ -213,7 +251,7 @@ class Clock {
 		longBreakSeconds--;
 
 		if (longBreakSeconds === 0 && longBreakMinutes === 0) {
-			state = 'focus'
+			state = "focus";
 			focusMinutes = parseInt(inputFocosMinutes.value);
 			focusSeconds = parseInt(inputFocosSeconds.value);
 			longBreakMinutes = focusMinutes;
@@ -224,6 +262,7 @@ class Clock {
 			actionText.innerHTML = "Pronto!";
 			actionText.style.bottom = "0px";
 			actionImg.removeAttribute("src");
+			clock.showNotification();
 			clearInterval(timer, 1000);
 		}
 
@@ -333,9 +372,172 @@ class Clock {
 		action.classList.add("active");
 	}
 
+	showNotification() {
+		if (notificationState === true) {
+			switch (state) {
+				case "focus":
+					alert("É Hora de Trabalhar!");
+					break;
+				case "shortBreak" || "longBreak":
+					alert("É Hora de Fazer uma Pausa!");
+					break;
+			}
+		} else {
+			return console.log("desativado");
+		}
+	}
+
+	setBackGround() {
+		focusColor1.addEventListener("click", () => {
+			focusBackground = "red";
+		});
+		focusColor2.addEventListener("click", () => {
+			focusBackground = "green";
+		});
+		focusColor3.addEventListener("click", () => {
+			focusBackground = "darkblue";
+		});
+		focusColor4.addEventListener("click", () => {
+			focusBackground = "pink";
+		});
+		focusColor5.addEventListener("click", () => {
+			focusBackground = "blue";
+		});
+		focusColor6.addEventListener("click", () => {
+			focusBackground = "purple";
+		});
+
+		shortBreakColor1.addEventListener("click", () => {
+			shortBreakBackground = "red";
+		});
+		shortBreakColor2.addEventListener("click", () => {
+			shortBreakBackground = "green";
+		});
+		shortBreakColor3.addEventListener("click", () => {
+			shortBreakBackground = "darkblue";
+		});
+		shortBreakColor4.addEventListener("click", () => {
+			shortBreakBackground = "pink";
+		});
+		shortBreakColor5.addEventListener("click", () => {
+			shortBreakBackground = "blue";
+		});
+		shortBreakColor6.addEventListener("click", () => {
+			shortBreakBackground = "purple";
+		});
+
+		longBreakColor1.addEventListener("click", () => {
+			longBreakBackground = "red";
+		});
+		longBreakColor2.addEventListener("click", () => {
+			longBreakBackground = "green";
+		});
+		longBreakColor3.addEventListener("click", () => {
+			longBreakBackground = "darkblue";
+		});
+		longBreakColor4.addEventListener("click", () => {
+			longBreakBackground = "pink";
+		});
+		longBreakColor5.addEventListener("click", () => {
+			longBreakBackground = "blue";
+		});
+		longBreakColor6.addEventListener("click", () => {
+			longBreakBackground = "purple";
+		});
+	}
+
 	save() {
-		inputFocosMinutes.value;
-		inputFocosSeconds.value;
+		// Focus Error Control
+		if (parseInt(inputFocosMinutes.value) > 60) {
+			inputFocosMinutes.value = 60;
+		}
+		if (parseInt(inputFocosMinutes.value) < 0) {
+			inputFocosMinutes.value = 0;
+		}
+		if (parseInt(inputFocosSeconds.value) > 60) {
+			inputFocosSeconds.value = 60;
+		}
+		if (parseInt(inputFocosMinutes.value) === 0) {
+			if (parseInt(inputFocosSeconds.value) <= 0) {
+				inputFocosSeconds.value = 5;
+			}
+		} else {
+			if (parseInt(inputFocosSeconds.value) < 0) {
+				inputFocosSeconds.value = 1;
+			}
+		}
+		if (isNaN(parseInt(inputFocosMinutes.value))) {
+			inputFocosMinutes.value = 25;
+		}
+		if (isNaN(parseInt(inputFocosSeconds.value))) {
+			inputFocosSeconds.value = 0;
+		}
+		// ShortBreak Error Control
+		if (parseInt(inputBreakMinutes.value) > 60) {
+			inputBreakMinutes.value = 60;
+		}
+		if (parseInt(inputBreakMinutes.value) < 0) {
+			inputBreakMinutes.value = 0;
+		}
+		if (parseInt(inputBreakSeconds.value) > 60) {
+			inputBreakSeconds.value = 60;
+		}
+		if (parseInt(inputBreakMinutes.value) === 0) {
+			if (parseInt(inputBreakSeconds.value) <= 0) {
+				inputBreakSeconds.value = 5;
+			}
+		} else {
+			if (parseInt(inputBreakSeconds.value) < 0) {
+				inputBreakSeconds.value = 1;
+			}
+		}
+		if (isNaN(parseInt(inputBreakMinutes.value))) {
+			inputBreakMinutes.value = 5;
+		}
+		if (isNaN(parseInt(inputBreakSeconds.value))) {
+			inputBreakSeconds.value = 0;
+		}
+		// Long break Error Control
+		if (parseInt(inputLongBreakMinutes.value) > 60) {
+			inputLongBreakMinutes.value = 60;
+		}
+		if (parseInt(inputLongBreakMinutes.value) < 0) {
+			inputLongBreakMinutes.value = 0;
+		}
+		if (parseInt(inputLongBreakSeconds.value) > 60) {
+			inputLongBreakSeconds.value = 60;
+		}
+		if (parseInt(inputLongBreakMinutes.value) === 0) {
+			if (parseInt(inputLongBreakSeconds.value) <= 0) {
+				inputLongBreakSeconds.value = 5;
+			}
+		} else {
+			if (parseInt(inputLongBreakSeconds.value) < 0) {
+				inputLongBreakSeconds.value = 1;
+			}
+		}
+		if (isNaN(parseInt(inputLongBreakMinutes.value))) {
+			inputLongBreakMinutes.value = 30;
+		}
+		if (isNaN(parseInt(inputLongBreakSeconds.value))) {
+			inputLongBreakSeconds.value = 0;
+		}
+		// Pomodoro Error Control
+		if (parseInt(inputPomodoro.value) > 10) {
+			inputPomodoro.value = 10;
+		}
+		if (parseInt(inputPomodoro.value) < 1) {
+			inputPomodoro.value = 1;
+		}
+		if (isNaN(parseInt(inputPomodoro.value))) {
+			inputPomodoro.value = 4;
+		}
+		pomodoro = 1;
+		pomodoroDisplay.innerHTML = `<strong>${pomodoro}°</strong> Pomodoro`;
+		pomodoroCount = parseInt(inputPomodoro.value);
+		state = "focus";
+		// Change Background
+		changeColors();
 		clock.reStart();
 		clock.closeConfig();
 	}
@@ -404,82 +606,511 @@ config.addEventListener("click", clock.openConfig);
 
 closeX.addEventListener("click", clock.closeConfig);
 
+notificationInput.addEventListener("change", () => {
+	if (notificationInput.checked) {
+		notificationState = true;
+	} else {
+		notificationState = false;
+	}
+});
+
+clock.setBackGround();
+
 saveButton.addEventListener("click", clock.save);
 
 // Change all color
 function changeColors() {
-	// Switch pomodoro states
-	switch (state) {
-		// On Focus
-		case (state = "focus"):
-			body.style.backgroundColor = "#fb3628";
+	if (state === "focus") {
+		switch (focusBackground) {
+			case "red":
+				body.style.backgroundColor = "#fb3628";
 
-			// Call playAudio() function
-			playAudio();
+				settings.style.backgroundColor = "#cc271b";
 
-			title.setAttribute("src", "/imgs/titulo.png");
+				body.style.transition = "all 0.3s";
 
-			document.documentElement.style.setProperty("--primaryColor", "#771414");
+				// Call playAudio() function
+				playAudio();
 
-			document.documentElement.style.setProperty("--shadowColor", "#b00c02c2");
+				title.setAttribute("src", "/imgs/titulo.png");
 
-			document.documentElement.style.setProperty("--hoverColor", "#771414cd");
+				document.documentElement.style.setProperty("--primaryColor", "#771414");
 
-			// by default display focus time on screen (if focusMinutes is less than zero, add a zero in front of minutes. if not, do not add anything)
-			time.innerHTML = `${
-				(parseInt(inputFocosMinutes.value) < 10 ? "0" : "") +
-				parseInt(inputFocosMinutes.value)
-			}:${
-				// (if focusSeconds is less than zero, add a zero in front of seconds. if not, do not add anything)
-				(parseInt(inputFocosSeconds.value) < 10 ? "0" : "") +
-				parseInt(inputFocosSeconds.value)
-			}`;
+				document.documentElement.style.setProperty("--shadowColor", "#b00c02c2");
 
-			displayState.innerHTML = "Foco";
+				document.documentElement.style.setProperty("--hoverColor", "#771414cd");
 
-			break;
-		// On Short Break
-		case (state = "shortBreak"):
-			body.style.backgroundColor = "#358528";
+				// by default display focus time on screen (if focusMinutes is less than zero, add a zero in front of minutes. if not, do not add anything)
+				time.innerHTML = `${
+					(parseInt(inputFocosMinutes.value) < 10 ? "0" : "") +
+					parseInt(inputFocosMinutes.value)
+				}:${
+					// (if focusSeconds is less than zero, add a zero in front of seconds. if not, do not add anything)
+					(parseInt(inputFocosSeconds.value) < 10 ? "0" : "") +
+					parseInt(inputFocosSeconds.value)
+				}`;
 
-			body.style.transition = "all 0.3s";
+				icon.setAttribute("href", "/favicon/despertador.ico");
 
-			// Call playAudio() function
-			playAudio();
+				displayState.innerHTML = "Foco";
 
-			title.setAttribute("src", "/imgs/titulo2.png");
+				break;
 
-			document.documentElement.style.setProperty("--primaryColor", "#22531A");
+			case "green":
+				body.style.backgroundColor = "#358528";
 
-			document.documentElement.style.setProperty("--shadowColor", "#1c5513bc");
+				settings.style.backgroundColor = "#2d7422";
 
-			document.documentElement.style.setProperty("--hoverColor", "#22531Acd");
+				body.style.transition = "all 0.3s";
 
-			displayState.innerHTML = "Pausa";
+				// Call playAudio() function
+				playAudio();
 
-			break;
-		case (state = "longBreak"):
-			body.style.backgroundColor = "#32307D";
+				title.setAttribute("src", "/imgs/titulo2.png");
 
-			body.style.transition = "all 0.3s";
+				document.documentElement.style.setProperty("--primaryColor", "#22531A");
 
-			// Call playAudio() function
-			playAudio();
+				document.documentElement.style.setProperty("--shadowColor", "#1c5513bc");
 
-			title.setAttribute("src", "/imgs/titulo3.png");
+				document.documentElement.style.setProperty("--hoverColor", "#22531Acd");
 
-			document.documentElement.style.setProperty("--primaryColor", "#292867");
+				// by default display focus time on screen (if focusMinutes is less than zero, add a zero in front of minutes. if not, do not add anything)
+				time.innerHTML = `${
+					(parseInt(inputFocosMinutes.value) < 10 ? "0" : "") +
+					parseInt(inputFocosMinutes.value)
+				}:${
+					// (if focusSeconds is less than zero, add a zero in front of seconds. if not, do not add anything)
+					(parseInt(inputFocosSeconds.value) < 10 ? "0" : "") +
+					parseInt(inputFocosSeconds.value)
+				}`;
 
-			document.documentElement.style.setProperty("--shadowColor", "#1B1966");
+				icon.setAttribute("href", "/favicon/despertador2.ico");
 
-			document.documentElement.style.setProperty("--hoverColor", "#292867cd");
+				displayState.innerHTML = "Foco";
+				break;
 
-			displayState.innerHTML = "Descanso";
+			case "darkblue":
+				body.style.backgroundColor = "#32307D";
 
-			break;
-		default:
-			console.log(`Ocorreu um Erro no estado atual. state igual a ${state}`);
-			break;
+				settings.style.backgroundColor = "#282676";
+
+				body.style.transition = "all 0.3s";
+
+				// Call playAudio() function
+				playAudio();
+
+				title.setAttribute("src", "/imgs/titulo3.png");
+
+				document.documentElement.style.setProperty("--primaryColor", "#292867");
+
+				document.documentElement.style.setProperty("--shadowColor", "#1B1966");
+
+				document.documentElement.style.setProperty("--hoverColor", "#292867cd");
+
+				// by default display focus time on screen (if focusMinutes is less than zero, add a zero in front of minutes. if not, do not add anything)
+				time.innerHTML = `${
+					(parseInt(inputFocosMinutes.value) < 10 ? "0" : "") +
+					parseInt(inputFocosMinutes.value)
+				}:${
+					// (if focusSeconds is less than zero, add a zero in front of seconds. if not, do not add anything)
+					(parseInt(inputFocosSeconds.value) < 10 ? "0" : "") +
+					parseInt(inputFocosSeconds.value)
+				}`;
+
+				icon.setAttribute("href", "/favicon/despertador3.ico");
+
+				displayState.innerHTML = "Foco";
+				break;
+
+			case "pink":
+				body.style.backgroundColor = "#FE265A";
+
+				settings.style.backgroundColor = "#c82249";
+
+				body.style.transition = "all 0.3s";
+
+				// Call playAudio() function
+				playAudio();
+
+				title.setAttribute("src", "/imgs/titulo4.png");
+
+				document.documentElement.style.setProperty("--primaryColor", "#e00639");
+
+				document.documentElement.style.setProperty("--shadowColor", "#D60436");
+
+				document.documentElement.style.setProperty("--hoverColor", "#D20032cd");
+
+				// by default display focus time on screen (if focusMinutes is less than zero, add a zero in front of minutes. if not, do not add anything)
+				time.innerHTML = `${
+					(parseInt(inputFocosMinutes.value) < 10 ? "0" : "") +
+					parseInt(inputFocosMinutes.value)
+				}:${
+					// (if focusSeconds is less than zero, add a zero in front of seconds. if not, do not add anything)
+					(parseInt(inputFocosSeconds.value) < 10 ? "0" : "") +
+					parseInt(inputFocosSeconds.value)
+				}`;
+
+				icon.setAttribute("href", "/favicon/despertador4.ico");
+
+				displayState.innerHTML = "Foco";
+				break;
+
+			case "blue":
+				body.style.backgroundColor = "#29BFFF";
+
+				settings.style.backgroundColor = "#2488b2";
+
+				body.style.transition = "all 0.3s";
+
+				// Call playAudio() function
+				playAudio();
+
+				title.setAttribute("src", "/imgs/titulo5.png");
+
+				document.documentElement.style.setProperty("--primaryColor", "#009EE1");
+
+				document.documentElement.style.setProperty("--shadowColor", "#00B1FD");
+
+				document.documentElement.style.setProperty("--hoverColor", "#009EE1cd");
+
+				// by default display focus time on screen (if focusMinutes is less than zero, add a zero in front of minutes. if not, do not add anything)
+				time.innerHTML = `${
+					(parseInt(inputFocosMinutes.value) < 10 ? "0" : "") +
+					parseInt(inputFocosMinutes.value)
+				}:${
+					// (if focusSeconds is less than zero, add a zero in front of seconds. if not, do not add anything)
+					(parseInt(inputFocosSeconds.value) < 10 ? "0" : "") +
+					parseInt(inputFocosSeconds.value)
+				}`;
+
+				icon.setAttribute("href", "/favicon/despertador5.ico");
+
+				displayState.innerHTML = "Foco";
+
+				break;
+
+			case "purple":
+				body.style.backgroundColor = "#5F2CF1";
+
+				settings.style.backgroundColor = "#5024c8";
+
+				body.style.transition = "all 0.3s";
+
+				// Call playAudio() function
+				playAudio();
+
+				title.setAttribute("src", "/imgs/titulo6.png");
+
+				document.documentElement.style.setProperty("--primaryColor", "#3D00EB");
+
+				document.documentElement.style.setProperty("--shadowColor", "#4200FF");
+
+				document.documentElement.style.setProperty("--hoverColor", "#3D00EBcd");
+
+				// by default display focus time on screen (if focusMinutes is less than zero, add a zero in front of minutes. if not, do not add anything)
+				time.innerHTML = `${
+					(parseInt(inputFocosMinutes.value) < 10 ? "0" : "") +
+					parseInt(inputFocosMinutes.value)
+				}:${
+					// (if focusSeconds is less than zero, add a zero in front of seconds. if not, do not add anything)
+					(parseInt(inputFocosSeconds.value) < 10 ? "0" : "") +
+					parseInt(inputFocosSeconds.value)
+				}`;
+
+				icon.setAttribute("href", "/favicon/despertador6.ico");
+
+				displayState.innerHTML = "Foco";
+
+				break;
+		}
+	}
+	if (state === "shortBreak") {
+		switch (shortBreakBackground) {
+			case "red":
+				body.style.backgroundColor = "#fb3628";
+
+				settings.style.backgroundColor = "#cc271b";
+
+				body.style.transition = "all 0.3s";
+
+				// Call playAudio() function
+				playAudio();
+
+				title.setAttribute("src", "/imgs/titulo.png");
+
+				document.documentElement.style.setProperty("--primaryColor", "#771414");
+
+				document.documentElement.style.setProperty("--shadowColor", "#b00c02c2");
+
+				document.documentElement.style.setProperty("--hoverColor", "#771414cd");
+
+				displayState.innerHTML = "Pausa";
+
+				icon.setAttribute("href", "/favicon/despertador.ico");
+
+				break;
+
+			case "green":
+				body.style.backgroundColor = "#358528";
+
+				settings.style.backgroundColor = "#2d7422";
+
+				body.style.transition = "all 0.3s";
+
+				// Call playAudio() function
+				playAudio();
+
+				title.setAttribute("src", "/imgs/titulo2.png");
+
+				document.documentElement.style.setProperty("--primaryColor", "#22531A");
+
+				document.documentElement.style.setProperty("--shadowColor", "#1c5513bc");
+
+				document.documentElement.style.setProperty("--hoverColor", "#22531Acd");
+
+				icon.setAttribute("href", "/favicon/despertador2.ico");
+
+				displayState.innerHTML = "Pausa";
+				break;
+
+			case "darkblue":
+				body.style.backgroundColor = "#32307D";
+
+				settings.style.backgroundColor = "#282676";
+
+				body.style.transition = "all 0.3s";
+
+				// Call playAudio() function
+				playAudio();
+
+				title.setAttribute("src", "/imgs/titulo3.png");
+
+				document.documentElement.style.setProperty("--primaryColor", "#292867");
+
+				document.documentElement.style.setProperty("--shadowColor", "#1B1966");
+
+				document.documentElement.style.setProperty("--hoverColor", "#292867cd");
+
+				icon.setAttribute("href", "/favicon/despertador3.ico");
+
+				displayState.innerHTML = "Pausa";
+				break;
+
+			case "pink":
+				body.style.backgroundColor = "#FE265A";
+
+				settings.style.backgroundColor = "#c82249";
+
+				body.style.transition = "all 0.3s";
+
+				// Call playAudio() function
+				playAudio();
+
+				title.setAttribute("src", "/imgs/titulo4.png");
+
+				document.documentElement.style.setProperty("--primaryColor", "#e00639");
+
+				document.documentElement.style.setProperty("--shadowColor", "#D60436");
+
+				document.documentElement.style.setProperty("--hoverColor", "#D20032cd");
+
+				icon.setAttribute("href", "/favicon/despertador4.ico");
+
+				displayState.innerHTML = "Pausa";
+				break;
+
+			case "blue":
+				body.style.backgroundColor = "#29BFFF";
+
+				settings.style.backgroundColor = "#2488b2";
+
+				body.style.transition = "all 0.3s";
+
+				// Call playAudio() function
+				playAudio();
+
+				title.setAttribute("src", "/imgs/titulo5.png");
+
+				document.documentElement.style.setProperty("--primaryColor", "#009EE1");
+
+				document.documentElement.style.setProperty("--shadowColor", "#00B1FD");
+
+				document.documentElement.style.setProperty("--hoverColor", "#009EE1cd");
+
+				icon.setAttribute("href", "/favicon/despertador5.ico");
+
+				displayState.innerHTML = "Pausa";
+
+				break;
+
+			case "purple":
+				body.style.backgroundColor = "#5F2CF1";
+
+				settings.style.backgroundColor = "#5024c8";
+
+				body.style.transition = "all 0.3s";
+
+				// Call playAudio() function
+				playAudio();
+
+				title.setAttribute("src", "/imgs/titulo6.png");
+
+				document.documentElement.style.setProperty("--primaryColor", "#3D00EB");
+
+				document.documentElement.style.setProperty("--shadowColor", "#4200FF");
+
+				document.documentElement.style.setProperty("--hoverColor", "#3D00EBcd");
+
+				icon.setAttribute("href", "/favicon/despertador6.ico");
+
+				displayState.innerHTML = "Pausa";
+
+				break;
+		}
+	}
+	if (state === "longBreak") {
+		switch (longBreakBackground) {
+			case "red":
+				body.style.backgroundColor = "#fb3628";
+
+				settings.style.backgroundColor = "#cc271b";
+
+				body.style.transition = "all 0.3s";
+
+				// Call playAudio() function
+				playAudio();
+
+				title.setAttribute("src", "/imgs/titulo.png");
+
+				document.documentElement.style.setProperty("--primaryColor", "#771414");
+
+				document.documentElement.style.setProperty("--shadowColor", "#b00c02c2");
+
+				document.documentElement.style.setProperty("--hoverColor", "#771414cd");
+
+				icon.setAttribute("href", "/favicon/despertador.ico");
+
+				displayState.innerHTML = "Descanso";
+
+				break;
+
+			case "green":
+				body.style.backgroundColor = "#358528";
+
+				settings.style.backgroundColor = "#2d7422";
+
+				body.style.transition = "all 0.3s";
+
+				// Call playAudio() function
+				playAudio();
+
+				title.setAttribute("src", "/imgs/titulo2.png");
+
+				document.documentElement.style.setProperty("--primaryColor", "#22531A");
+
+				document.documentElement.style.setProperty("--shadowColor", "#1c5513bc");
+
+				document.documentElement.style.setProperty("--hoverColor", "#22531Acd");
+
+				icon.setAttribute("href", "/favicon/despertador2.ico");
+
+				displayState.innerHTML = "Descanso";
+				break;
+
+			case "darkblue":
+				body.style.backgroundColor = "#32307D";
+
+				settings.style.backgroundColor = "#282676";
+
+				body.style.transition = "all 0.3s";
+
+				// Call playAudio() function
+				playAudio();
+
+				title.setAttribute("src", "/imgs/titulo3.png");
+
+				document.documentElement.style.setProperty("--primaryColor", "#292867");
+
+				document.documentElement.style.setProperty("--shadowColor", "#1B1966");
+
+				document.documentElement.style.setProperty("--hoverColor", "#292867cd");
+
+				icon.setAttribute("href", "/favicon/despertador3.ico");
+
+				displayState.innerHTML = "Descanso";
+				break;
+
+			case "pink":
+				body.style.backgroundColor = "#FE265A";
+
+				settings.style.backgroundColor = "#c82249";
+
+				body.style.transition = "all 0.3s";
+
+				// Call playAudio() function
+				playAudio();
+
+				title.setAttribute("src", "/imgs/titulo4.png");
+
+				document.documentElement.style.setProperty("--primaryColor", "#e00639");
+
+				document.documentElement.style.setProperty("--shadowColor", "#D60436");
+
+				document.documentElement.style.setProperty("--hoverColor", "#D20032cd");
+
+				icon.setAttribute("href", "/favicon/despertador4.ico");
+
+				displayState.innerHTML = "Descanso";
+				break;
+
+			case "blue":
+				body.style.backgroundColor = "#29BFFF";
+
+				settings.style.backgroundColor = "#2488b2";
+
+				body.style.transition = "all 0.3s";
+
+				// Call playAudio() function
+				playAudio();
+
+				title.setAttribute("src", "/imgs/titulo5.png");
+
+				document.documentElement.style.setProperty("--primaryColor", "#009EE1");
+
+				document.documentElement.style.setProperty("--shadowColor", "#00B1FD");
+
+				document.documentElement.style.setProperty("--hoverColor", "#009EE1cd");
+
+				icon.setAttribute("href", "/favicon/despertador5.ico");
+
+				displayState.innerHTML = "Pausa";
+
+				break;
+
+			case "purple":
+				body.style.backgroundColor = "#5F2CF1";
+
+				settings.style.backgroundColor = "#5024c8";
+
+				body.style.transition = "all 0.3s";
+
+				// Call playAudio() function
+				playAudio();
+
+				title.setAttribute("src", "/imgs/titulo6.png");
+
+				document.documentElement.style.setProperty("--primaryColor", "#3D00EB");
+
+				document.documentElement.style.setProperty("--shadowColor", "#4200FF");
+
+				document.documentElement.style.setProperty("--hoverColor", "#3D00EBcd");
+
+				icon.setAttribute("href", "/favicon/despertador6.ico");
+
+				displayState.innerHTML = "Pausa";
+
+				break;
+		}
 	}
 }
 

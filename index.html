@@ -6,6 +6,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style/style.css" />
 		<script defer src="/javascript/script.js"></script>
+		<link
+			rel="shortcut icon"
+			href="/favicon/despertador.ico"
+			type="image/x-icon"
+			id="pageIcon"
+		/>
 		<title id="pageTitle">Simple Pomodoro</title>
 	</head>
 	<body>
@@ -45,33 +51,79 @@
 			<div class="inputs">
 				<div class="numberImputs">
 					<label for="inputFMinutes">Minutos</label>
-					<input type="number" id="inputFMinutes" min="1" max="60" />
+					<input type="number" id="inputFMinutes" min="0" max="60" step="1" />
 				</div>
 				<div class="numberImputs">
 					<label for="inputFMinutes">Segundos</label>
-					<input type="number" id="inputFSeconds" min="0" max="60" />
+					<input type="number" id="inputFSeconds" min="0" max="60" step="1" />
 				</div>
 			</div>
 			<h2>Tempo de Pausa</h2>
 			<div class="inputs">
 				<div class="numberImputs">
 					<label for="inputBMinutes">Minutos</label>
-					<input type="number" id="inputBMinutes" min="1" max="60" />
+					<input type="number" id="inputBMinutes" min="0" max="60" step="1" />
 				</div>
 				<div class="numberImputs">
 					<label for="inputBSeconds">Segundos</label>
-					<input type="number" id="inputBSeconds" min="0" max="60" />
+					<input type="number" id="inputBSeconds" min="0" max="60" step="1" />
 				</div>
 			</div>
 			<h2>Tempo de Descanso</h2>
 			<div class="inputs">
 				<div class="numberImputs">
 					<label for="inputLBMinutes">Minutos</label>
-					<input type="number" id="inputLBMinutes" min="1" max="60" />
+					<input type="number" id="inputLBMinutes" min="0" max="60" step="1" />
 				</div>
 				<div class="numberImputs">
 					<label for="inputLBSeconds">Segundos</label>
-					<input type="number" id="inputLBSeconds" min="0" max="60" />
+					<input type="number" id="inputLBSeconds" min="0" max="60" step="1" />
+				</div>
+			</div>
+			<h2>Intervalos até o Descanso</h2>
+			<div id="pomodoroInput">
+				<label for="inputPomodoro">Pomodoro</label>
+				<input type="number" id="pomodoroValue" min="1" max="10" step="1" />
+			</div>
+			<h2>Habilitar Notificações</h2>
+			<div id="notification">
+				<label class="switch">
+					<input type="checkbox" id="notificationInput" />
+					<span class="slider round"></span>
+				</label>
+				<p>Lembre-se de Habilitar a caixa de dialogo no Navegador</p>
+			</div>
+			<h2>Cor de Fundo do Foco</h2>
+			<div class="colorConteiner">
+				<div class="colors">
+					<button id="fcolor1" value="red"></button>
+					<button id="fcolor2" value="green"></button>
+					<button id="fcolor3" value="darkblue"></button>
+					<button id="fcolor4" value="pink"></button>
+					<button id="fcolor5" value="blue"></button>
+					<button id="fcolor6" value="purple"></button>
+				</div>
+			</div>
+			<h2>Cor de Fundo da Pausa</h2>
+			<div class="colorConteiner">
+				<div class="colors">
+					<button id="sbcolor1" value="red"></button>
+					<button id="sbcolor2" value="green"></button>
+					<button id="sbcolor3" value="darkblue"></button>
+					<button id="sbcolor4" value="pink"></button>
+					<button id="sbcolor5" value="blue"></button>
+					<button id="sbcolor6" value="purple"></button>
+				</div>
+			</div>
+			<h2>Cor de Fundo do Descanso</h2>
+			<div class="colorConteiner">
+				<div class="colors">
+					<button id="lbcolor1" value="red"></button>
+					<button id="lbcolor2" value="green"></button>
+					<button id="lbcolor3" value="darkblue"></button>
+					<button id="lbcolor4" value="pink"></button>
+					<button id="lbcolor5" value="blue"></button>
+					<button id="lbcolor6" value="purple"></button>
 				</div>
 			</div>
 			<button id="save">Salvar</button>

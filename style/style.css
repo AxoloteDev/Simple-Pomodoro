@@ -169,6 +169,7 @@ main > #clock {
 	border: none;
 	height: 55px;
 	width: 200px;
+	color: #5024c8;
 	background-color: var(--primaryColor);
 	color: white;
 	font: 600 1em var(--text);
@@ -250,13 +251,13 @@ main > #clock {
 }
 
 #settings > h1 {
-	color: #8f8f8f;
+	color: #ffffff;
 	font: bold 1.8em var(--text);
 	text-align: center;
 }
 
 #settings > h2 {
-	color: #8f8f8f;
+	color: #ffffff;
 	font: normal 1.3em var(--text);
 	text-align: center;
 	margin-top: 25px;
@@ -269,7 +270,7 @@ main > #clock {
 }
 
 .numberImputs > label {
-	color: #8f8f8f;
+	color: #ffffff;
 	font: normal 0.8em var(--text);
 	text-align: center;
 	margin-bottom: 8px;
@@ -277,13 +278,18 @@ main > #clock {
 
 .numberImputs > input {
 	text-align: center;
-	border-radius: 10px;
-	height: 45px;
+	color: #ffffff;
+	border-radius: 5px;
+	height: 50px;
 	width: 90px;
 	font: normal 1.2em var(--text);
 	border: none;
-	background-color: #625d5d48;
+	background-color: var(--hoverColor);
 	padding: 10px;
+}
+
+.numberImputs > input:focus {
+	outline: solid 0.5px #ffffff;
 }
 
 .inputs {
@@ -292,13 +298,166 @@ main > #clock {
 	margin-bottom: 10px;
 }
 
+#pomodoroInput {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+	justify-content: center;
+}
+
+#pomodoroInput > label {
+	color: #ffffff;
+	font: normal 0.8em var(--text);
+	text-align: center;
+	margin-bottom: 8px;
+}
+
+#pomodoroInput > input {
+	text-align: center;
+	display: block;
+	color: #ffffff;
+	margin: auto;
+	border-radius: 5px;
+	height: 50px;
+	width: 120px;
+	font: normal 1.2em var(--text);
+	border: none;
+	background-color: var(--hoverColor);
+	padding: 10px;
+}
+
+#pomodoroInput > input:focus {
+	outline: solid 0.5px #ffffff;
+}
+
+#notification {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+#notification > p {
+	color: #ffffff;
+	font: normal 0.6em var(--text);
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--hoverColor);
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+input:checked + .slider {
+	background-color: #14c322;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+}
+
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
+}
+
+.colorConteiner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.colors {
+	display: flex;
+	width: 85%;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.colors > button {
+	border-radius: 50px;
+	padding: 20px;
+	cursor: pointer;
+	border: none;
+}
+
+.colors > button:nth-child(1) {
+	background-color: #fb3628;
+	border: solid 1px #ffffff;
+}
+
+.colors > button:nth-child(2) {
+	background-color: #358528;
+	border: solid 1px #ffffff;
+}
+
+.colors > button:nth-child(3) {
+	background-color: #32307d;
+	border: solid 1px #ffffff;
+}
+
+.colors > button:nth-child(4) {
+	background-color: #e00639;
+	border: solid 1px #ffffff;
+}
+
+.colors > button:nth-child(5) {
+	background-color: #29bfff;
+	border: solid 1px #ffffff;
+}
+
+.colors > button:nth-child(6) {
+	background-color: #5f2cf1;
+	border: solid 1px #ffffff;
+}
+
 #settings > #save {
 	padding: 15px;
 	width: 130px;
 	height: 55px;
 	margin: 35px auto 15px auto;
 	color: #ffffff;
-	background-color: #b30101;
+	background-color: var(--primaryColor);
+	box-shadow: 3px 3px 5px 3px var(--shadowColor);
 	font: normal 1em var(--text);
 	border: none;
 	cursor: pointer;
