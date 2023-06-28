@@ -6,7 +6,7 @@ const main = document.querySelector("#main");
 
 const icon = document.querySelector("#pageIcon");
 
-const title = document.querySelector("#title");
+const title = document.querySelector(".title");
 
 const config = document.querySelector("#config");
 const settings = document.querySelector("#settings");
@@ -148,6 +148,7 @@ class Clock {
 				longBreakSeconds = parseInt(inputLongBreakSeconds.value);
 				focusMinutes = longBreakMinutes;
 				focusSeconds = longBreakSeconds;
+				changeColors();
 				actionText.innerHTML = "Pronto!";
 				actionImg.removeAttribute("src");
 				actionText.style.bottom = "0px";
@@ -1083,7 +1084,7 @@ function changeColors() {
 
 				icon.setAttribute("href", "/favicon/despertador5.ico");
 
-				displayState.innerHTML = "Pausa";
+				displayState.innerHTML = "Descanso";
 
 				break;
 
@@ -1107,7 +1108,7 @@ function changeColors() {
 
 				icon.setAttribute("href", "/favicon/despertador6.ico");
 
-				displayState.innerHTML = "Pausa";
+				displayState.innerHTML = "Descanso";
 
 				break;
 		}
@@ -1116,3 +1117,7 @@ function changeColors() {
 
 // call changeColors() to change background color
 changeColors();
+
+onload = function () {
+	notificationInput.checked = false;
+};

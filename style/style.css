@@ -24,17 +24,17 @@ body {
 header {
 	box-shadow: 5px 5px 5px 5px var(--shadowColor);
 	height: 130px;
+	width: 100%;
 	position: relative;
 	margin-bottom: 50px;
 }
 
-header > #title {
+header > .title {
 	display: block;
-	position: relative;
 	margin: 0 auto;
 	height: 60px;
 	top: 50%;
-	transform: translateY(-50%);
+	transform: translateY(50%);
 }
 
 header > #configuration {
@@ -450,6 +450,30 @@ input:checked + .slider:before {
 	border: solid 1px #ffffff;
 }
 
+#about {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#about > a > img {
+	height: 20px;
+	margin-right: 5px;
+	position: relative;
+	top: 3px;
+}
+
+#about > a {
+	color: #ffffff;
+	font: normal 0.8em var(--text);
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#about > a:hover {
+	color: var(--primaryColor);
+}
+
 #settings > #save {
 	padding: 15px;
 	width: 130px;
@@ -457,8 +481,53 @@ input:checked + .slider:before {
 	margin: 35px auto 15px auto;
 	color: #ffffff;
 	background-color: var(--primaryColor);
-	box-shadow: 3px 3px 5px 3px var(--shadowColor);
+	box-shadow: 2px 2px 3px 2px var(--shadowColor);
 	font: normal 1em var(--text);
 	border: none;
+}
+
+#settings > #save:hover {
 	cursor: pointer;
+	background-color: var(--hoverColor);
+}
+
+#settings > #save:active {
+	box-shadow: 0px 0px 0px 0px var(--shadowColor);
+	position: relative;
+	top: 3px;
+}
+
+@media only screen and (max-width: 500px) {
+	header > .title {
+		height: 50px;
+		top: 50%;
+		transform: translateY(70%);
+	}
+
+	main > #clock {
+		position: relative;
+		top: -50%;
+		transform: translateY(50px);
+		width: 350px;
+	}
+
+	#buttons {
+		position: relative;
+		top: 60%;
+		transform: translateY(50px);
+	}
+
+	#button {
+		height: 60px;
+		margin-left: 10px;
+	}
+
+	#restart {
+		height: 60px;
+		margin-right: 10px;
+	}
+
+	#settings {
+		width: 350px;
+	}
 }
