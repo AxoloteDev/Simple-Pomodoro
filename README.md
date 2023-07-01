@@ -3,7 +3,7 @@
 
 ---
 
-### Descrição
+### Descrição 📖
  Esse simples Relógio Pomodoro foi feito usando puramente JavaScript (praticas de ES6), ele foi feito para ajudar na produtividade no ambiente de trabalho utilizando da pratica de Pomodoro. Todo o Design foi feito por mim e o Wireframe está disponivel nos arquivos.
 
 ___O que é um Relógio Pomodoro?___
@@ -11,7 +11,7 @@ ___O que é um Relógio Pomodoro?___
 
 ---
 
-### Funcionalidades
+### Funcionalidades 🛠️
  A algums parametros que podem ser manipulados nas "configurações" essese parametros são:
 * Tempo de cada Estado: É possivel mudar os Minutos e Segundos de cada estado ("Foco", "Pausa" e "Descanso");
 * Intervalos até o Descanso: Também é possivel definir o numero de Pomodoros até o descanso (o intervalo maior);
@@ -20,17 +20,17 @@ ___O que é um Relógio Pomodoro?___
 
 ---
 
-### Versão em Extensão de Navegador
+### Versão em Extensão de Navegador  🌐
  Já está disponivel uma versão que permite o uso rapído do Simple Pomodoro, infelizmente meu plano original de criar um relógio nativo na página não funcionou devido as limitações do navegador.<br>
  **A extensão não está disponivel para download devido a taxa de publicação ser em Dolar**, porém você ainda pode baixar o arquivo "extension" e usala como extenção local.
 
  ---
 
- ## Importante! 
+ ## Importante  ❗
  **Lembrando que esse projeto é apenas uma forma de estudo, sem nenhuma intenção comercial** 
  Fique a vontade para adicionar funcionalidades Novas no projeto!
 
-### futuro do Projeto
+### futuro do Projeto 👁️‍🗨️
  Atualizações com novas funcionalidades serão adicionadas aos poucos, os planos atuais são:
  * Tema da pagina personalizado: O usuário poderá escolher qualquer cor como tema;
  * Poder alterar o estado: Após usar o simple pomodoro percebi que é necessario uma forma de poder trocar de estado a qualquer momento;
@@ -43,6 +43,6 @@ O simple Pomodoro foi inspirado no site **[Pomofocus.io](https://pomofocus.io/)*
 
  ---
 
-## Contato
+## Contato ☎️
  1. [renankalu@gmail.com](renankalu@gmail.com)
  2. [Youtube]()
