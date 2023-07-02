@@ -39,7 +39,7 @@ ___O que é um Relógio Pomodoro?___
  ---
 
 ## Créditos 👏
-O simple Pomodoro foi inspirado no site **[Pomofocus.io](https://pomofocus.io/)**
+O Simple Pomodoro foi inspirado no site **[Pomofocus.io](https://pomofocus.io/)**
 
  ---
 
