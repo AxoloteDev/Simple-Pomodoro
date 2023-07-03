@@ -12,6 +12,14 @@ const config = document.querySelector("#config");
 const settings = document.querySelector("#settings");
 const closeX = document.querySelector("#closeX");
 
+const stateDisplay = document.querySelector("#stateDisplay");
+
+const buttonFocus = document.querySelector("#buttonFoco");
+const buttonShortBreak = document.querySelector("#buttonShortBreak");
+const buttonLongBreak = document.querySelector("#buttonLongBreak");
+
+const currentPomodoro = document.querySelector("#currentPomodoroValue");
+
 const inputFocosMinutes = document.querySelector("#inputFMinutes");
 const inputFocosSeconds = document.querySelector("#inputFSeconds");
 const inputBreakMinutes = document.querySelector("#inputBMinutes");
@@ -69,7 +77,9 @@ let state = "focus";
 
 // pomodoro count
 let pomodoroCount = parseInt((inputPomodoro.value = 4));
-let pomodoro = 1;
+
+currentPomodoro.value = 1;
+let pomodoro = parseInt(currentPomodoro.value);
 
 // Variable that controls the pomodoro timer
 let timer = undefined;
@@ -291,6 +301,7 @@ class Clock {
 	}
 
 	updatePomodoro() {
+		currentPomodoro.value++;
 		pomodoro++;
 		pomodoroDisplay.innerHTML = `<strong>${pomodoro}°</strong> Pomodoro`;
 	}
@@ -533,10 +544,19 @@ class Clock {
 		if (isNaN(parseInt(inputPomodoro.value))) {
 			inputPomodoro.value = 4;
 		}
-		pomodoro = 1;
+		if (parseInt(currentPomodoro.value) > parseInt(inputPomodoro.value)) {
+			currentPomodoro.value = 1;
+		}
+		if (parseInt(currentPomodoro.value) < 1) {
+			currentPomodoro.value = 1;
+		}
+		if (isNaN(parseInt(currentPomodoro.value))) {
+			currentPomodoro.value = 1;
+		}
+		// Pomodoro
+		pomodoro = parseInt(currentPomodoro.value);
 		pomodoroDisplay.innerHTML = `<strong>${pomodoro}°</strong> Pomodoro`;
 		pomodoroCount = parseInt(inputPomodoro.value);
-		state = "focus";
 		// Change Background
 		changeColors();
 		clock.reStart();
@@ -607,6 +627,30 @@ config.addEventListener("click", clock.openConfig);
 
 closeX.addEventListener("click", clock.closeConfig);
 
+function activeStateButton(id) {
+	let buttons = document.getElementsByTagName("button");
+	for (let i = 0; i < buttons.length; i++) {
+		buttons[i].classList.remove("activeButton");
+	}
+	let selectButton = document.getElementById(id);
+	selectButton.classList.add("activeButton");
+}
+
+buttonFocus.addEventListener("click", () => {
+	state = buttonFocus.value;
+	activeStateButton("buttonFoco");
+});
+
+buttonShortBreak.addEventListener("click", () => {
+	state = buttonShortBreak.value;
+	activeStateButton("buttonShortBreak");
+});
+
+buttonLongBreak.addEventListener("click", () => {
+	state = buttonLongBreak.value;
+	activeStateButton("buttonLongBreak");
+});
+
 notificationInput.addEventListener("change", () => {
 	if (notificationInput.checked) {
 		notificationState = true;
@@ -622,6 +666,8 @@ saveButton.addEventListener("click", clock.save);
 // Change all color
 function changeColors() {
 	if (state === "focus") {
+		stateDisplay.innerHTML = "Foco";
+		activeStateButton("buttonFoco");
 		switch (focusBackground) {
 			case "red":
 				body.style.backgroundColor = "#fb3628";
@@ -826,6 +872,8 @@ function changeColors() {
 		}
 	}
 	if (state === "shortBreak") {
+		stateDisplay.innerHTML = "Pausa";
+		activeStateButton("buttonShortBreak");
 		switch (shortBreakBackground) {
 			case "red":
 				body.style.backgroundColor = "#fb3628";
@@ -970,6 +1018,8 @@ function changeColors() {
 		}
 	}
 	if (state === "longBreak") {
+		stateDisplay.innerHTML = "Descanso";
+		activeStateButton("buttonSlongBreak");
 		switch (longBreakBackground) {
 			case "red":
 				body.style.backgroundColor = "#fb3628";

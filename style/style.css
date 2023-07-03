@@ -258,6 +258,82 @@ main > #clock {
 	margin-bottom: 25px;
 }
 
+#states > h2 {
+	color: var(--primaryColor);
+	font: bold 1.5em var(--text);
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+#statesButtons {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+#statesButtons > button {
+	padding: 10px;
+	height: 45px;
+	width: 100px;
+	border: none;
+	color: #ffffff;
+	background-color: var(--primaryColor);
+	margin-bottom: 10px;
+	font: 500 0.9em var(--text);
+	box-shadow: 2px 2px 3px 2px var(--shadowColor);
+	border-radius: 5px;
+}
+
+#statesButtons > button:hover {
+	cursor: pointer;
+	background-color: var(--hoverColor);
+}
+
+#statesButtons > button:active {
+	box-shadow: 0px 0px 0px 0px var(--shadowColor);
+	position: relative;
+	top: 3px;
+}
+
+.activeButton {
+	box-shadow: 0px 0px 0px 0px var(--shadowColor);
+	position: relative;
+	top: 3px;
+	border: 1px solid #ffffff !important;
+}
+
+#currentPomodoroInput {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+	justify-content: center;
+}
+
+#currentPomodoroInput > label {
+	color: #ffffff;
+	font: normal 0.8em var(--text);
+	text-align: center;
+	margin-bottom: 8px;
+}
+
+#currentPomodoroInput > input {
+	text-align: center;
+	display: block;
+	color: #ffffff;
+	margin: auto;
+	border-radius: 5px;
+	height: 50px;
+	width: 120px;
+	font: normal 1.2em var(--text);
+	border: none;
+	background-color: var(--hoverColor);
+	padding: 10px;
+}
+
+#currentPomodoroInput > input:focus {
+	outline: solid 0.5px #ffffff;
+}
+
 .numberImputs {
 	display: flex;
 	flex-direction: column;
