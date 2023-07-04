@@ -12,7 +12,7 @@ ___O que é um Relógio Pomodoro?___
 ---
 
 ### Funcionalidades 🛠️
- A algums parametros que podem ser manipulados nas "configurações" essese parametros são:
+ A algums parametros que podem ser manipulados nas "configurações" sendo eles:
 * Tempo de cada Estado: É possivel mudar os Minutos e Segundos de cada estado ("Foco", "Pausa" e "Descanso");
 * Intervalos até o Descanso: Também é possivel definir o numero de Pomodoros até o descanso (o intervalo maior);
 * Notificações: A um sistema arcaico de notificações na qual pode ser habilitado;
