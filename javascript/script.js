@@ -402,59 +402,77 @@ class Clock {
 	setBackGround() {
 		focusColor1.addEventListener("click", () => {
 			focusBackground = "red";
+			activefColorButton("fcolor1");
 		});
 		focusColor2.addEventListener("click", () => {
 			focusBackground = "green";
+			activefColorButton("fcolor2");
 		});
 		focusColor3.addEventListener("click", () => {
 			focusBackground = "darkblue";
+			activefColorButton("fcolor3");
 		});
 		focusColor4.addEventListener("click", () => {
 			focusBackground = "pink";
+			activefColorButton("fcolor4");
 		});
 		focusColor5.addEventListener("click", () => {
 			focusBackground = "blue";
+			activefColorButton("fcolor5");
 		});
 		focusColor6.addEventListener("click", () => {
 			focusBackground = "purple";
+			activefColorButton("fcolor6");
 		});
 
 		shortBreakColor1.addEventListener("click", () => {
 			shortBreakBackground = "red";
+			activesbColorButton("sbcolor1");
 		});
 		shortBreakColor2.addEventListener("click", () => {
 			shortBreakBackground = "green";
+			activesbColorButton("sbcolor2");
 		});
 		shortBreakColor3.addEventListener("click", () => {
 			shortBreakBackground = "darkblue";
+			activesbColorButton("sbcolor3");
 		});
 		shortBreakColor4.addEventListener("click", () => {
 			shortBreakBackground = "pink";
+			activesbColorButton("sbcolor4");
 		});
 		shortBreakColor5.addEventListener("click", () => {
 			shortBreakBackground = "blue";
+			activesbColorButton("sbcolor5");
 		});
 		shortBreakColor6.addEventListener("click", () => {
 			shortBreakBackground = "purple";
+			activesbColorButton("sbcolor6");
 		});
 
 		longBreakColor1.addEventListener("click", () => {
 			longBreakBackground = "red";
+			activelbColorButton("lbcolor1");
 		});
 		longBreakColor2.addEventListener("click", () => {
 			longBreakBackground = "green";
+			activelbColorButton("lbcolor2");
 		});
 		longBreakColor3.addEventListener("click", () => {
 			longBreakBackground = "darkblue";
+			activelbColorButton("lbcolor3");
 		});
 		longBreakColor4.addEventListener("click", () => {
 			longBreakBackground = "pink";
+			activelbColorButton("lbcolor4");
 		});
 		longBreakColor5.addEventListener("click", () => {
 			longBreakBackground = "blue";
+			activelbColorButton("lbcolor5");
 		});
 		longBreakColor6.addEventListener("click", () => {
 			longBreakBackground = "purple";
+			activelbColorButton("lbcolor6");
 		});
 	}
 
@@ -660,6 +678,33 @@ notificationInput.addEventListener("change", () => {
 });
 
 clock.setBackGround();
+
+function activefColorButton(id) {
+	let colors = document.getElementsByTagName("button");
+	for (let i = 0; i < colors.length; i++) {
+		colors[i].classList.remove("activefColor");
+	}
+	let selectColor = document.getElementById(id);
+	selectColor.classList.add("activefColor");
+}
+
+function activesbColorButton(id) {
+	let colors = document.getElementsByTagName("button");
+	for (let i = 0; i < colors.length; i++) {
+		colors[i].classList.remove("activesbColor");
+	}
+	let selectColor = document.getElementById(id);
+	selectColor.classList.add("activesbColor");
+}
+
+function activelbColorButton(id) {
+	let colors = document.getElementsByTagName("button");
+	for (let i = 0; i < colors.length; i++) {
+		colors[i].classList.remove("activelbColor");
+	}
+	let selectColor = document.getElementById(id);
+	selectColor.classList.add("activelbColor");
+}
 
 saveButton.addEventListener("click", clock.save);
 
@@ -1019,7 +1064,7 @@ function changeColors() {
 	}
 	if (state === "longBreak") {
 		stateDisplay.innerHTML = "Descanso";
-			activeStateButton("buttonLongBreak");
+		activeStateButton("buttonLongBreak");
 		switch (longBreakBackground) {
 			case "red":
 				body.style.backgroundColor = "#fb3628";

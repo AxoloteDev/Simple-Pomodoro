@@ -492,56 +492,38 @@ input:checked + .slider:before {
 
 .colors > button:nth-child(1) {
 	background-color: #fb3628;
-	border: solid 1px #ffffff;
 }
 
 .colors > button:nth-child(2) {
 	background-color: #358528;
-	border: solid 1px #ffffff;
 }
 
 .colors > button:nth-child(3) {
 	background-color: #32307d;
-	border: solid 1px #ffffff;
 }
 
 .colors > button:nth-child(4) {
 	background-color: #e00639;
-	border: solid 1px #ffffff;
 }
 
 .colors > button:nth-child(5) {
 	background-color: #29bfff;
-	border: solid 1px #ffffff;
 }
 
 .colors > button:nth-child(6) {
 	background-color: #5f2cf1;
-	border: solid 1px #ffffff;
 }
 
-.colors > button:nth-child(1):hover {
-	border: solid 1px #14c322;
+.activefColor{
+	border: solid 1px #ffffff !important;
 }
 
-.colors > button:nth-child(2):hover {
-	border: solid 1px #14c322;
+.activesbColor{
+	border: solid 1px #ffffff !important;
 }
 
-.colors > button:nth-child(3):hover {
-	border: solid 1px #14c322;
-}
-
-.colors > button:nth-child(4):hover {
-	border: solid 1px #14c322;
-}
-
-.colors > button:nth-child(5):hover {
-	border: solid 1px #14c322;
-}
-
-.colors > button:nth-child(6):hover {
-	border: solid 1px #14c322;
+.activelbColor{
+	border: solid 1px #ffffff !important;
 }
 
 #about {
