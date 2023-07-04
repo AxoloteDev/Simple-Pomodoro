@@ -10,13 +10,16 @@
 
 body {
 	font-size: 16px;
+	background-color: var(--bodyColor);
 }
 
 :root {
 	--text: "Roboto", helvetica, sans-serif;
+	--bodyColor: #ffffff;
 	--primaryColor: #ffffff;
 	--shadowColor: #ffffff;
 	--hoverColor: #ffffff;
+	--settingsColor: #ffffff;
 }
 
 /* Header */
@@ -204,7 +207,7 @@ main > #clock {
 #settings {
 	display: none;
 	flex-direction: column;
-	background-color: #dbdbdb;
+	background-color: var(--settingsColor);
 	height: 90%;
 	width: 400px;
 	position: fixed;
@@ -514,15 +517,15 @@ input:checked + .slider:before {
 	background-color: #5f2cf1;
 }
 
-.activefColor{
+.activefColor {
 	border: solid 1px #ffffff !important;
 }
 
-.activesbColor{
+.activesbColor {
 	border: solid 1px #ffffff !important;
 }
 
-.activelbColor{
+.activelbColor {
 	border: solid 1px #ffffff !important;
 }
 
@@ -605,5 +608,9 @@ input:checked + .slider:before {
 
 	#settings {
 		width: 350px;
+	}
+
+	.colors {
+		width: 100%;
 	}
 }

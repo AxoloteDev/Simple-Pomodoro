@@ -717,14 +717,14 @@ function changeColors() {
 			case "red":
 				body.style.backgroundColor = "#fb3628";
 
-				settings.style.backgroundColor = "#cc271b";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
 				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo.png");
+
+				document.documentElement.style.setProperty("--settingsColor", "#cc271b");
 
 				document.documentElement.style.setProperty("--primaryColor", "#771414");
 
@@ -751,14 +751,14 @@ function changeColors() {
 			case "green":
 				body.style.backgroundColor = "#358528";
 
-				settings.style.backgroundColor = "#2d7422";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
 				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo2.png");
+
+				document.documentElement.style.setProperty("--settingsColor", "#2d7422");
 
 				document.documentElement.style.setProperty("--primaryColor", "#22531A");
 
@@ -784,14 +784,14 @@ function changeColors() {
 			case "darkblue":
 				body.style.backgroundColor = "#32307D";
 
-				settings.style.backgroundColor = "#282676";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
 				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo3.png");
+
+				document.documentElement.style.setProperty("--settingsColor", "#302c99");
 
 				document.documentElement.style.setProperty("--primaryColor", "#292867");
 
@@ -817,8 +817,6 @@ function changeColors() {
 			case "pink":
 				body.style.backgroundColor = "#FE265A";
 
-				settings.style.backgroundColor = "#c82249";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
@@ -826,9 +824,11 @@ function changeColors() {
 
 				title.setAttribute("src", "/imgs/titulo4.png");
 
+				document.documentElement.style.setProperty("--settingsColor", "#ed3661");
+
 				document.documentElement.style.setProperty("--primaryColor", "#e00639");
 
-				document.documentElement.style.setProperty("--shadowColor", "#D60436");
+				document.documentElement.style.setProperty("--shadowColor", "#be002c");
 
 				document.documentElement.style.setProperty("--hoverColor", "#D20032cd");
 
@@ -850,8 +850,6 @@ function changeColors() {
 			case "blue":
 				body.style.backgroundColor = "#29BFFF";
 
-				settings.style.backgroundColor = "#2488b2";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
@@ -859,9 +857,11 @@ function changeColors() {
 
 				title.setAttribute("src", "/imgs/titulo5.png");
 
+				document.documentElement.style.setProperty("--settingsColor", "#44b7e9");
+
 				document.documentElement.style.setProperty("--primaryColor", "#009EE1");
 
-				document.documentElement.style.setProperty("--shadowColor", "#00B1FD");
+				document.documentElement.style.setProperty("--shadowColor", "#017fb6");
 
 				document.documentElement.style.setProperty("--hoverColor", "#009EE1cd");
 
@@ -884,14 +884,14 @@ function changeColors() {
 			case "purple":
 				body.style.backgroundColor = "#5F2CF1";
 
-				settings.style.backgroundColor = "#5024c8";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
 				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo6.png");
+
+				document.documentElement.style.setProperty("--settingsColor", "#592bd8");
 
 				document.documentElement.style.setProperty("--primaryColor", "#3D00EB");
 
@@ -923,14 +923,14 @@ function changeColors() {
 			case "red":
 				body.style.backgroundColor = "#fb3628";
 
-				settings.style.backgroundColor = "#cc271b";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
 				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo.png");
+
+				document.documentElement.style.setProperty("--settingsColor", "#cc271b");
 
 				document.documentElement.style.setProperty("--primaryColor", "#771414");
 
@@ -947,14 +947,14 @@ function changeColors() {
 			case "green":
 				body.style.backgroundColor = "#358528";
 
-				settings.style.backgroundColor = "#2d7422";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
 				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo2.png");
+
+				document.documentElement.style.setProperty("--settingsColor", "#2d7422");
 
 				document.documentElement.style.setProperty("--primaryColor", "#22531A");
 
@@ -970,14 +970,14 @@ function changeColors() {
 			case "darkblue":
 				body.style.backgroundColor = "#32307D";
 
-				settings.style.backgroundColor = "#282676";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
 				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo3.png");
+
+				document.documentElement.style.setProperty("--settingsColor", "#302c99");
 
 				document.documentElement.style.setProperty("--primaryColor", "#292867");
 
@@ -993,8 +993,6 @@ function changeColors() {
 			case "pink":
 				body.style.backgroundColor = "#FE265A";
 
-				settings.style.backgroundColor = "#c82249";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
@@ -1002,9 +1000,11 @@ function changeColors() {
 
 				title.setAttribute("src", "/imgs/titulo4.png");
 
+				document.documentElement.style.setProperty("--settingsColor", "#ed3661");
+
 				document.documentElement.style.setProperty("--primaryColor", "#e00639");
 
-				document.documentElement.style.setProperty("--shadowColor", "#D60436");
+				document.documentElement.style.setProperty("--shadowColor", "#be002c");
 
 				document.documentElement.style.setProperty("--hoverColor", "#D20032cd");
 
@@ -1016,8 +1016,6 @@ function changeColors() {
 			case "blue":
 				body.style.backgroundColor = "#29BFFF";
 
-				settings.style.backgroundColor = "#2488b2";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
@@ -1025,12 +1023,13 @@ function changeColors() {
 
 				title.setAttribute("src", "/imgs/titulo5.png");
 
+				document.documentElement.style.setProperty("--settingsColor", "#44b7e9");
+
 				document.documentElement.style.setProperty("--primaryColor", "#009EE1");
 
-				document.documentElement.style.setProperty("--shadowColor", "#00B1FD");
+				document.documentElement.style.setProperty("--shadowColor", "#017fb6");
 
 				document.documentElement.style.setProperty("--hoverColor", "#009EE1cd");
-
 				icon.setAttribute("href", "/favicon/despertador5.ico");
 
 				displayState.innerHTML = "Pausa";
@@ -1040,14 +1039,14 @@ function changeColors() {
 			case "purple":
 				body.style.backgroundColor = "#5F2CF1";
 
-				settings.style.backgroundColor = "#5024c8";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
 				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo6.png");
+
+				document.documentElement.style.setProperty("--settingsColor", "#592bd8");
 
 				document.documentElement.style.setProperty("--primaryColor", "#3D00EB");
 
@@ -1069,14 +1068,14 @@ function changeColors() {
 			case "red":
 				body.style.backgroundColor = "#fb3628";
 
-				settings.style.backgroundColor = "#cc271b";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
 				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo.png");
+
+				document.documentElement.style.setProperty("--settingsColor", "#cc271b");
 
 				document.documentElement.style.setProperty("--primaryColor", "#771414");
 
@@ -1093,14 +1092,14 @@ function changeColors() {
 			case "green":
 				body.style.backgroundColor = "#358528";
 
-				settings.style.backgroundColor = "#2d7422";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
 				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo2.png");
+
+				document.documentElement.style.setProperty("--settingsColor", "#2d7422");
 
 				document.documentElement.style.setProperty("--primaryColor", "#22531A");
 
@@ -1116,14 +1115,14 @@ function changeColors() {
 			case "darkblue":
 				body.style.backgroundColor = "#32307D";
 
-				settings.style.backgroundColor = "#282676";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
 				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo3.png");
+
+				document.documentElement.style.setProperty("--settingsColor", "#302c99");
 
 				document.documentElement.style.setProperty("--primaryColor", "#292867");
 
@@ -1139,8 +1138,6 @@ function changeColors() {
 			case "pink":
 				body.style.backgroundColor = "#FE265A";
 
-				settings.style.backgroundColor = "#c82249";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
@@ -1148,9 +1145,11 @@ function changeColors() {
 
 				title.setAttribute("src", "/imgs/titulo4.png");
 
+				document.documentElement.style.setProperty("--settingsColor", "#ed3661");
+
 				document.documentElement.style.setProperty("--primaryColor", "#e00639");
 
-				document.documentElement.style.setProperty("--shadowColor", "#D60436");
+				document.documentElement.style.setProperty("--shadowColor", "#be002c");
 
 				document.documentElement.style.setProperty("--hoverColor", "#D20032cd");
 
@@ -1162,8 +1161,6 @@ function changeColors() {
 			case "blue":
 				body.style.backgroundColor = "#29BFFF";
 
-				settings.style.backgroundColor = "#2488b2";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
@@ -1171,9 +1168,11 @@ function changeColors() {
 
 				title.setAttribute("src", "/imgs/titulo5.png");
 
+				document.documentElement.style.setProperty("--settingsColor", "#44b7e9");
+
 				document.documentElement.style.setProperty("--primaryColor", "#009EE1");
 
-				document.documentElement.style.setProperty("--shadowColor", "#00B1FD");
+				document.documentElement.style.setProperty("--shadowColor", "#017fb6");
 
 				document.documentElement.style.setProperty("--hoverColor", "#009EE1cd");
 
@@ -1186,14 +1185,14 @@ function changeColors() {
 			case "purple":
 				body.style.backgroundColor = "#5F2CF1";
 
-				settings.style.backgroundColor = "#5024c8";
-
 				body.style.transition = "all 0.3s";
 
 				// Call playAudio() function
 				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo6.png");
+
+				document.documentElement.style.setProperty("--settingsColor", "#592bd8");
 
 				document.documentElement.style.setProperty("--primaryColor", "#3D00EB");
 
