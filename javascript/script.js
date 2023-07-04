@@ -1019,7 +1019,7 @@ function changeColors() {
 	}
 	if (state === "longBreak") {
 		stateDisplay.innerHTML = "Descanso";
-		activeStateButton("buttonSlongBreak");
+			activeStateButton("buttonLongBreak");
 		switch (longBreakBackground) {
 			case "red":
 				body.style.backgroundColor = "#fb3628";
