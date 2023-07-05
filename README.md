@@ -33,7 +33,7 @@ ___O que é um Relógio Pomodoro?___
 ### futuro do Projeto 👁️‍🗨️
  Atualizações com novas funcionalidades serão adicionadas aos poucos, os planos atuais são:
  * ~~Poder alterar o estado: Após usar o simple pomodoro percebi que é necessario uma forma de poder trocar de estado a qualquer momento;~~ ✅
- * 
+   
  ---
 
 ## Créditos 👏
