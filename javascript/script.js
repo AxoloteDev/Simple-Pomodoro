@@ -713,9 +713,6 @@ function changeColors() {
 	if (state === "focus") {
 		stateDisplay.innerHTML = "Foco";
 		activeStateButton("buttonFoco");
-		activefColorButton("fcolor1");
-		activesbColorButton("sbcolor2");
-		activelbColorButton("lbcolor3");
 		switch (focusBackground) {
 			case "red":
 				body.style.backgroundColor = "#fb3628";
@@ -921,9 +918,6 @@ function changeColors() {
 	}
 	if (state === "shortBreak") {
 		stateDisplay.innerHTML = "Pausa";
-		activefColorButton("fcolor1");
-		activesbColorButton("sbcolor2");
-		activelbColorButton("lbcolor3");
 		activeStateButton("buttonShortBreak");
 		switch (shortBreakBackground) {
 			case "red":
@@ -1070,9 +1064,6 @@ function changeColors() {
 	if (state === "longBreak") {
 		stateDisplay.innerHTML = "Descanso";
 		activeStateButton("buttonLongBreak");
-		activefColorButton("fcolor1");
-		activesbColorButton("sbcolor2");
-		activelbColorButton("lbcolor3");
 		switch (longBreakBackground) {
 			case "red":
 				body.style.backgroundColor = "#fb3628";
