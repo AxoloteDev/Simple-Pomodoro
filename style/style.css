@@ -283,7 +283,6 @@ main > #clock {
 	background-color: var(--primaryColor);
 	margin-bottom: 10px;
 	font: 500 0.9em var(--text);
-	box-shadow: 2px 2px 3px 2px var(--shadowColor);
 	border-radius: 5px;
 }
 
@@ -293,13 +292,11 @@ main > #clock {
 }
 
 #statesButtons > button:active {
-	box-shadow: 0px 0px 0px 0px var(--shadowColor);
 	position: relative;
 	top: 3px;
 }
 
 .activeButton {
-	box-shadow: 0px 0px 0px 0px var(--shadowColor);
 	position: relative;
 	top: 3px;
 	border: 1px solid #ffffff !important;
