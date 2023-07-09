@@ -147,6 +147,7 @@ class Clock {
 			focusMinutes = shortBreakMinutes;
 			focusSeconds = shortBreakSeconds;
 			changeColors();
+			playAudio();
 			actionText.innerHTML = "Pronto!";
 			actionText.style.bottom = "0px";
 			actionImg.removeAttribute("src");
@@ -159,6 +160,7 @@ class Clock {
 				focusMinutes = longBreakMinutes;
 				focusSeconds = longBreakSeconds;
 				changeColors();
+				playAudio();
 				actionText.innerHTML = "Pronto!";
 				actionImg.removeAttribute("src");
 				actionText.style.bottom = "0px";
@@ -214,6 +216,7 @@ class Clock {
 			shortBreakSeconds = focusSeconds;
 			icon.setAttribute("href", "/favicon/despertador.ico");
 			changeColors();
+			playAudio();
 			clock.updatePomodoro();
 			actionText.innerHTML = "Pronto!";
 			actionImg.removeAttribute("src");
@@ -719,9 +722,6 @@ function changeColors() {
 
 				body.style.transition = "all 0.3s";
 
-				// Call playAudio() function
-				playAudio();
-
 				title.setAttribute("src", "/imgs/titulo.png");
 
 				document.documentElement.style.setProperty("--settingsColor", "#cc271b");
@@ -753,8 +753,6 @@ function changeColors() {
 
 				body.style.transition = "all 0.3s";
 
-				// Call playAudio() function
-				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo2.png");
 
@@ -786,9 +784,6 @@ function changeColors() {
 
 				body.style.transition = "all 0.3s";
 
-				// Call playAudio() function
-				playAudio();
-
 				title.setAttribute("src", "/imgs/titulo3.png");
 
 				document.documentElement.style.setProperty("--settingsColor", "#302c99");
@@ -818,9 +813,6 @@ function changeColors() {
 				body.style.backgroundColor = "#FE265A";
 
 				body.style.transition = "all 0.3s";
-
-				// Call playAudio() function
-				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo4.png");
 
@@ -852,9 +844,6 @@ function changeColors() {
 
 				body.style.transition = "all 0.3s";
 
-				// Call playAudio() function
-				playAudio();
-
 				title.setAttribute("src", "/imgs/titulo5.png");
 
 				document.documentElement.style.setProperty("--settingsColor", "#44b7e9");
@@ -885,9 +874,6 @@ function changeColors() {
 				body.style.backgroundColor = "#5F2CF1";
 
 				body.style.transition = "all 0.3s";
-
-				// Call playAudio() function
-				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo6.png");
 
@@ -925,9 +911,6 @@ function changeColors() {
 
 				body.style.transition = "all 0.3s";
 
-				// Call playAudio() function
-				playAudio();
-
 				title.setAttribute("src", "/imgs/titulo.png");
 
 				document.documentElement.style.setProperty("--settingsColor", "#cc271b");
@@ -949,9 +932,6 @@ function changeColors() {
 
 				body.style.transition = "all 0.3s";
 
-				// Call playAudio() function
-				playAudio();
-
 				title.setAttribute("src", "/imgs/titulo2.png");
 
 				document.documentElement.style.setProperty("--settingsColor", "#2d7422");
@@ -971,9 +951,6 @@ function changeColors() {
 				body.style.backgroundColor = "#32307D";
 
 				body.style.transition = "all 0.3s";
-
-				// Call playAudio() function
-				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo3.png");
 
@@ -995,9 +972,6 @@ function changeColors() {
 
 				body.style.transition = "all 0.3s";
 
-				// Call playAudio() function
-				playAudio();
-
 				title.setAttribute("src", "/imgs/titulo4.png");
 
 				document.documentElement.style.setProperty("--settingsColor", "#ed3661");
@@ -1018,9 +992,6 @@ function changeColors() {
 
 				body.style.transition = "all 0.3s";
 
-				// Call playAudio() function
-				playAudio();
-
 				title.setAttribute("src", "/imgs/titulo5.png");
 
 				document.documentElement.style.setProperty("--settingsColor", "#44b7e9");
@@ -1040,9 +1011,6 @@ function changeColors() {
 				body.style.backgroundColor = "#5F2CF1";
 
 				body.style.transition = "all 0.3s";
-
-				// Call playAudio() function
-				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo6.png");
 
@@ -1070,9 +1038,6 @@ function changeColors() {
 
 				body.style.transition = "all 0.3s";
 
-				// Call playAudio() function
-				playAudio();
-
 				title.setAttribute("src", "/imgs/titulo.png");
 
 				document.documentElement.style.setProperty("--settingsColor", "#cc271b");
@@ -1094,9 +1059,6 @@ function changeColors() {
 
 				body.style.transition = "all 0.3s";
 
-				// Call playAudio() function
-				playAudio();
-
 				title.setAttribute("src", "/imgs/titulo2.png");
 
 				document.documentElement.style.setProperty("--settingsColor", "#2d7422");
@@ -1116,9 +1078,6 @@ function changeColors() {
 				body.style.backgroundColor = "#32307D";
 
 				body.style.transition = "all 0.3s";
-
-				// Call playAudio() function
-				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo3.png");
 
@@ -1140,9 +1099,6 @@ function changeColors() {
 
 				body.style.transition = "all 0.3s";
 
-				// Call playAudio() function
-				playAudio();
-
 				title.setAttribute("src", "/imgs/titulo4.png");
 
 				document.documentElement.style.setProperty("--settingsColor", "#ed3661");
@@ -1162,9 +1118,6 @@ function changeColors() {
 				body.style.backgroundColor = "#29BFFF";
 
 				body.style.transition = "all 0.3s";
-
-				// Call playAudio() function
-				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo5.png");
 
@@ -1186,9 +1139,6 @@ function changeColors() {
 				body.style.backgroundColor = "#5F2CF1";
 
 				body.style.transition = "all 0.3s";
-
-				// Call playAudio() function
-				playAudio();
 
 				title.setAttribute("src", "/imgs/titulo6.png");
 
